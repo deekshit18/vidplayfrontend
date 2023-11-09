@@ -1,0 +1,281 @@
+REACT:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::;;;;;;;;
+
+React: front end technology
+-to create UI
+UI: User Interface
+point where user interact with the software.
+
+react make use of javascript libraries to create front end/UI
+
+
+libraries:predefined codes-to do particular task.
+framework :
+ libraries Vs framework:
+Library : It performs a set of  specific and well-defined operations. Examples : Network protocols, compression, image manipulation, string utilities, regular expression evaluation, math etc
+Framework: It is known to be a skeleton where the application defines the content of the operation by filling out the skeleton. Examples of frameworks: Web application system, Plug-in manager, GUI system. The framework only defines the concept but an application further defines the functionality that is useful for end-users.
+
+
+features of react:
+1)to create user interface
+2)used to create single page application:
+webapplication or website interact with the user dynamically rewriting the current webpagewith the new data from the webpage.
+
+
+3)declarative application:
+     donot have direct access to real dom,it only acces to virtual dom
+
+
+4)virtual dom and compare with the real dom after that it compares with the real dom and make change.
+ onclick in virtual dom is:
+onClick
+
+
+5)immutable variables:
+it cannot be changed.
+
+
+6)pure functions:
+ it accept immutable varible and return a new object and result only depend on th variables.
+
+eg: react component
+7)data sharing: unidirectional(eg:parent to child)
+
+
+
+8)language-JSX- javascript XML (combination of HTML,CSS,javascript)
+all tag must be in a single tag.
+
+9)
+Transpiling:
+process of converting JSX into HTML, css, javascript
+
+babel:--convertor--automatically install
+
+
+
+how to create a react project
+--------------------------------
+1)npx create -react-app projectname
+npx-(node pacage execute)
+npm-node pacage manager
+
+2)cd project name:- to change directory/folder
+3)npm-start
+
+
+react creates virtual dom
+ 
+process of comparing real dom and virtual dom is called diffing
+
+reconcilation: process of updating real dom.
+
+files in react:
+--------------
+1)readme.md:--holds the description of the react application
+2)package.json ---npm configuration-dependencies -libraries
+ 
+3)package-lock.json:---holds the verion of libraries that is installed
+4).gitignore file: holds name of those files which need not to be pushed into git repo
+nod module:--it holds the copy of installed libraries.
+6)public:;holds files that can be accesed throughout the project.
+
+index.html:--it is the onnly page that loads in the browser
+
+report webvital:---to measure performance of the react application
+
+Data Sharing
+_______________
+we must export and import 
+
+probs: used to share data from parent to child
+
+
+
+component::basic unit of react application.it allways starts with a capital letter.
+class component:
+component name starts with capital letter.
+
+
+
+import react from "react"
+class component name extends react.component{
+ render(){
+        return(
+            
+
+            <div>
+       
+
+            </div>
+        )
+    }
+}
+export default component name;
+
+{
+
+<>empty tag: it is called react fragment.
+
+##to acces js code in jsx we need to use curly bracket.
+
+##there are different type of components
+1.functional components:--using function
+2.app component
+
+
+
+(primitive and non-primitive,how many datatypes in js)
+
+primitive and non-primitive datatypes
+------------------------------------------
+Primitive data structure is a fundamental type of data structure that stores the data of only one type whereas the non-primitive data structure is a type of data structure which is a user-defined that stores the data of different types in a single entity.
+
+JavaScript has 8 Datatypes
+1. String
+2. Number
+3. Bigint
+4. Boolean
+5. Undefined
+6. Null
+7. Symbol
+8. Object
+
+
+how to style components in react using css
+-------------------------------------
+1.inline:
+jsx=style={{key:value}}
+key:property
+value: propery value
+
+
+
+2.external
+external file-extension-.css
+external file has to import to those file which need to be acces
+should be created in src folder
+import css
+
+
+react event handling
+-----------------------
+1.function without arguements:---function
+2.function with arguement-functionname(arguement)-call back
+
+html-
+onclick( )= "functionname()"
+onClick( )={functionname}
+onClick={( )=>functionname()}
+
+conditional rendering
+------------------------
+1.if--&& operator
+1.if else--ternary operator-?:
+
+react state
+------------
+state:object that store properties of react component
+
+when the value changes it lead to re-render of the comonent.
+
+class components is also called stateless components
+
+-setstate( ): to change the values of state
+
+
+life cycle of react class component:
+---------------------------------------
+1.mounting phase:-component is added to DOM
+-cunstructor( )
+-getDerivedStateFromProps
+-render( )
+-ComponentDidMount( ): it calls automatically.it allows network request,component state updation.
+
+
+-
+
+2.updating phase:
+editing the component
+-getDerivedStateFromProps( )
+-shouldComponentUpdate( )- true or false
+-render( )
+-getSnapShotBeforeUpdate( )-
+-componentDidUpdate
+
+
+
+3.unmounting phase:-
+removing component from the dom.
+-componentWillUnmount( )
+
+
+hook:
+it is a predefined function to provide a functional components.
+
+rules to use hooks:
+1.import hooks from the react library into functional components.
+2.call the hook at the top of components.
+3.hooks cannot use conditionaly
+types of hooks:-
+1.predefined hooks
+eg:useState:
+   to create a state of functional components.it returns a state and a function to change the state.
+-can store-string,number,object,array
+
+##rest operator(...):-used to change the  specific position of element.
+2.custom hooks
+
+regular expression: to check whether the given allows a particular pattern
+rules to create regular expression
+rules to create:
+1)should start and end with forward slash
+2)expression begin with ^(rise to symbol)
+3)expression ends with $(dollar symbol)
+eg:/^[ 0-9]+$/
+
+match:- if a string match with the pattern-return array else return the null
+
+useeffect hook:
+________________
+it allows you to performs side effects in your components
+eg of side effects: fetching data,directly updating dom and timers.
+-it has two arguements.the second arguements is optional.
+syntax:--.
+useEffect(<function>,<dependency> )
+
+-dependency is to control sideEffect/useEffect
+
+1)no dependency is passed: useEffect runs on every render.
+2)empty array as dependency : runs only first render.
+##link tag is imported from react router library
+
+json server
+------------
+------------
+json server is a light weight and easy to use node js tool that stimulate a restful api using a json file as the data source
+features:
+1.easy and quick setup and also 2.methods like get,post,put and delete justlike a real backend api server.
+3.it can perform crud(create and read  update and delete )
+
+4. ebility to create routes 
+
+
+steps
+------
+1.npm init -y
+2.to create server install json server library
+3.npm-i json server
+4.gitignore create it wit the name of the folder node_modules 
+5.create a file  with name db.json and create categories in { }
+6.create index.js:-
+a)impoert json-server in index.js
+b)
+
+
+b)create server using json-server library
+
+
+F)setup port for the server
+
+
+react toastify website:used to customise alert
