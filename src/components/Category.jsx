@@ -67,11 +67,7 @@ function Category() {
   const dragover=(e)=>{
     e.preventDefault()
   }
-//   const  cvideodlt=async(,)=>{
-    
-// allCategory()
 
-// }
 
     const  videodrop=async(e,categoryid)=>{
   // console.log("catid:",categoryid);
@@ -101,7 +97,7 @@ item?.allVideo?.map(card=>(<div
  class="list-group d-flex mb-2 mt-2">
             <iframe  width="100%" height="" src={card.embedlink} title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
- <button onClick={()=>cvideodlt(h,card.id)} className='btn btn-danger'><i class="fa-solid fa-trash-can" style={{color: "#ffffff"}}></i></button>
+ <button className='btn btn-danger'><i class="fa-solid fa-trash-can" style={{color: "#ffffff"}}></i></button>
 
 </div>)): <p>Nothing to display</p> 
 }
