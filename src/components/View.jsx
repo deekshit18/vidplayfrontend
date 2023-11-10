@@ -9,7 +9,7 @@ function View({uploadvidstatus}) {
   const getAllUploadedVideo=async()=>{
     const response=await getAllvideos()
     const {data}=response
-    console.log({data});
+    // console.log({data});
 setAllvideo(data)
   }
   const vdata=allvideo

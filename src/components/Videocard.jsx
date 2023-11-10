@@ -45,7 +45,8 @@ return (
         </Modal.Header>
         <Modal.Title className='ms-5'>        {vd.caption}
 </Modal.Title>
-        <Modal.Body><iframe width="100%" height="400" src={`${vd.embedlink}?autoplay=1`} title={vd.caption} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Modal.Body>
+        <Modal.Body>
+          <iframe width="100%" height="400" src={`${vd.embedlink}?autoplay=1`} title={vd.caption} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Modal.Body>
         
       </Modal></div>
   )

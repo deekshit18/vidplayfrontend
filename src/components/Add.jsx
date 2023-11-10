@@ -121,7 +121,7 @@ function Add({setUploadvidstatus}) {
     const link = `https://www.youtube.com/embed/${value.slice(-11)}`
     setVideo({...video,embedlink:link})
   }
-  console.log(video);
+  // console.log(video);
  const handleUpload=async()=>{
   const {id,caption,url,embedlink}=video
   if (!id || !caption || !url || !embedlink) {

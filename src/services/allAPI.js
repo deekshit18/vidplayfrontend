@@ -61,3 +61,11 @@ export const getdargv  = async(id)=>{
 export const updatecat= async(id,body)=>{
    return await commonAPI('PUT',`${serverURL}/category/${id}`,body)
    }
+   export const updatecatvid= async(id,body)=>{
+      return await commonAPI('PUT',`${serverURL}/category/${id}`,body)
+      }
+   // export const deleteACatvid = async(id,videoId)=>{
+   //    return await commonAPI('DELETE',`${serverURL}/category/${id}`,{},videoId)
+   // }
+   
+   

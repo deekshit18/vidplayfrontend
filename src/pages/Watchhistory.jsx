@@ -26,7 +26,8 @@ function Watchhistory() {
       <div className='d-flex' style={{alignItems:"center",justifyContent:"space-between"}}>
         <h2>Watch History
           </h2>
-          <Link to={'/home'} style={{textDecoration:"none"}}><h4 className='mt-4'><i class="fa-sharp fa-solid fa-arrow-left me-3"></i>Back to Home</h4>
+          <Link to={'/home'} style={{textDecoration:"none"}}>
+            <h4 className='mt-4'><i class="fa-sharp fa-solid fa-arrow-left me-3"></i>Back to Home</h4>
   </Link>
       </div>
   <Table className='container mt-3'  striped bordered hover>

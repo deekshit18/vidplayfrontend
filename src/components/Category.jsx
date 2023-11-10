@@ -4,18 +4,19 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import { useState } from 'react';
-import { addAllCategory, deleteACategories, getAllCategories, getdargv, updatecat } from '../services/allAPI';
+import { addAllCategory, addhistory, deleteACategories, deleteACatvid, getAllCategories, getdargv, updatecat, updatecatvid } from '../services/allAPI';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import Videocard from './Videocard';
 import { Row } from 'react-bootstrap';
 function Category() {
   const [show, setShow] = useState(false);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [categoryName,setCategoryName] = useState('');
   const [categories,setCategories] = useState([])
-
+  
   //function to add  category
   const addCategory =async()=>{
     console.log(categoryName);
@@ -42,20 +43,23 @@ function Category() {
     else{
       toast.warning('Please Enter Category Name')
     }
+
   }
   //function to get all categories
 
   const allCategory = async()=>{
    const{data} = await getAllCategories()
    setCategories(data)
+   allCategory()
+
   //  console.log(data);
   }
-
+  
   const deleteCategory=async(id)=>{
     await deleteACategories(id)
     allCategory()
   }
-  console.log(categories);
+  // console.log(categories);
   useEffect(()=>{
     allCategory()
   },[])
@@ -63,15 +67,21 @@ function Category() {
   const dragover=(e)=>{
     e.preventDefault()
   }
- const  videodrop=async(e,categoryid)=>{
-  console.log("catid:",categoryid);
+//   const  cvideodlt=async(,)=>{
+    
+// allCategory()
+
+// }
+
+    const  videodrop=async(e,categoryid)=>{
+  // console.log("catid:",categoryid);
 let videoid=e.dataTransfer.getData("videoId") 
-console.log(videoid);
+// console.log(videoid);
 const {data}=await getdargv(videoid)
-console.log("data",data);
+// console.log("data",data);
 const selectedcat=categories.find(item=>item.id===categoryid)
 selectedcat.allVideo.push(data)
-console.log("sc",selectedcat);
+// console.log("sc",selectedcat);
 await updatecat(categoryid,selectedcat)
 allCategory()
 }
@@ -81,18 +91,25 @@ allCategory()
       </div>
     {  
   categories.length>0?
-  categories?.map((item)=>(<div droppable onDragOver={(e)=>dragover(e) } onDrop={(e)=>videodrop(e,item?.id)} className='ms-5 mb-3 mt-2'><ul class="list-group">
+  categories?.map((item)=>(<div droppable onDragOver={(e)=>dragover(e) } onDrop={(e)=>videodrop(e,item?.id)} className='ms-5 mb-3 mt-2 border border-2 border-info p-1'><ul class="list-group">
   <li  class="list-group-item d-flex justify-content-between align-items-center">
 {item.categoryName}    <span class="badge "><button onClick={()=>deleteCategory(item?.id)} className='btn btn-danger'><i class="fa-solid fa-trash-can" style={{color: "#ffffff"}}></i></button></span>
   </li></ul>
   <Row><Col>
   {item?.allVideo?.length>0?
-item?.allVideo?.map(card=>()): <p>Nothing to display</p> 
+item?.allVideo?.map(card=>(<div 
+ class="list-group d-flex mb-2 mt-2">
+            <iframe  width="100%" height="" src={card.embedlink} title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+ <button onClick={()=>cvideodlt(h,card.id)} className='btn btn-danger'><i class="fa-solid fa-trash-can" style={{color: "#ffffff"}}></i></button>
+
+</div>)): <p>Nothing to display</p> 
 }
-{/* <Videocard vd={card}/> */}
+
   </Col></Row>
 </div>)):<p>No Category Added</p> 
 }
+        
       <Modal
    show={show}
    onHide={handleClose}
