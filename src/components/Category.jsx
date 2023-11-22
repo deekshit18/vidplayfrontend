@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import { useState } from 'react';
-import { addAllCategory, addhistory, deleteACategories, deleteACatvid, getAllCategories, getdargv, updatecat, updatecatvid } from '../services/allAPI';
+import { addAllCategory, addhistory, deleteACategories, deleteACatvid, getAllCategories, getdargv, updateACategory, updatecat, updatecatvid } from '../services/allAPI';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import Videocard from './Videocard';
@@ -81,6 +81,17 @@ selectedcat.allVideo.push(data)
 await updatecat(categoryid,selectedcat)
 allCategory()
 }
+// to delete a singel category details
+const removeCVideo = async(cid,categoryID)=>{
+  // console.log(cid,'img');
+  // console.log(categoryID,'cst');
+  const A = categories.map(item=>item)
+// console.log(A);
+ A[categoryID-1].allVideo.splice(cid, 1);
+ const k=A[categoryID-1]
+ await updatecat(categoryID,k)
+  allCategory()
+}
   return (
     <>
       <div className='d-grid ms-3'><button onClick={handleShow} className='btn btn-warning mt-3 mb-3 ms-5'>Add New Category</button>
@@ -93,11 +104,11 @@ allCategory()
   </li></ul>
   <Row><Col>
   {item?.allVideo?.length>0?
-item?.allVideo?.map(card=>(<div 
- class="list-group d-flex mb-2 mt-2">
+item?.allVideo?.map((card,index)=>(<div 
+ class="list-group d-flex mb-2 mt-2">{index+1}
             <iframe  width="100%" height="" src={card.embedlink} title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
- <button className='btn btn-danger'><i class="fa-solid fa-trash-can" style={{color: "#ffffff"}}></i></button>
+ <button onClick={()=>removeCVideo(index,item?.id)} className='btn btn-danger'><i class="fa-solid fa-trash-can" style={{color: "#ffffff"}}></i></button>
 
 </div>)): <p>Nothing to display</p> 
 }
